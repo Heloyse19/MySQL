@@ -29,7 +29,18 @@ SELECT categoria, COUNT(*) AS quantidade
 FROM vendas
 GROUP BY categoria;
 
--- TOTAL DAS VENDAS --
+-- Total VENDAS DA CATEGORIA ALIMENTOS --	
 SELECT SUM(quantidade) AS total
+FROM vendas
+WHERE categoria = 'alimentos'
+GROUP BY categoria;
+
+-- TOTAL DAS VENDAS --
+SELECT SUM(quantidade) AS total_vendas
 FROM vendas;
 
+-- MEDIA DOS PREÇOS --
+SELECT 
+AVG(preco) AS media_precos,
+AVG(quantidade) AS media_quantidade
+FROM vendas;
