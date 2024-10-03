@@ -1,7 +1,8 @@
+-- CRIANDO O BANCO --
 create database heloBD;
-
 use heloBD;
 
+-- CRIANDO A TABELA VENDAS --
 create table vendas(
 	id int auto_increment primary key,
     produto varchar(100),
@@ -10,7 +11,7 @@ create table vendas(
     preco decimal(4,2),
     data_venda date
 );
-
+-- INSERINDO VALORES --
 insert into vendas(produto,categoria,quantidade,preco,data_venda) values
 ('arroz','alimentos','5','10.00','2024-09-01'),
 ('feijao','alimentos','3','7.40','2024-09-02'),
@@ -22,3 +23,13 @@ insert into vendas(produto,categoria,quantidade,preco,data_venda) values
 ('pao','alimentos','15','1.50','2024-09-05'),
 ('shampoo','higiene','1','15.00','2024-09-05'),
 ('creme dental','higiene','3','8.00','2024-09-06');
+
+-- USANDO A FUNÇÃO COUNT --
+SELECT categoria, COUNT(*) AS quantidade
+FROM vendas
+GROUP BY categoria;
+
+-- TOTAL DAS VENDAS --
+SELECT SUM(quantidade) AS total
+FROM vendas;
+
