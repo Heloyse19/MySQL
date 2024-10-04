@@ -44,3 +44,36 @@ SELECT
 AVG(preco) AS media_precos,
 AVG(quantidade) AS media_quantidade
 FROM vendas;
+
+select produto,
+avg(preco_unidade) as preco_medio
+from vendas group by produto;
+
+select avg(quantidade) as medida_produtos_por_venda
+from vendas;
+
+select MIN(preco) as preco_min
+from vendas;
+
+select MAX(preco) as preco_max
+from vendas;
+
+-- Maior quantidade de produtos vendidos em uma venda
+SELECT SUM(quantidade) AS total_quantidade
+FROM vendas;
+
+-- Menor quantidade de produtos vendidos em uma venda
+SELECT 
+id, 
+SUM(quantidade) AS total_quantidade
+FROM vendas GROUP BY  id
+ORDER BY quantidade ASC
+LIMIT 1;
+
+SELECT produto, AVG (preco)AS preco_total
+FROM vendas
+WHERE categoria = 'higiene'
+GROUP BY produto;
+
+select MAX(preco) as preco_maximo
+from vendas;
